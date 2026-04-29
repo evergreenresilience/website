@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:scholar.google.com)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(sips --help)",
+      "Bash(sips --helpProperties)",
+      "Bash(sips -Z 800 -s format jpeg -s formatOptions 82 juhi_photo.jpg --out juhi_photo_opt.jpg)",
+      "Bash(sips --resampleWidth 1920 -s format jpeg -s formatOptions 82 conifers_in_the_mist.jpg --out conifers_in_the_mist_opt.jpg)",
+      "Bash(sips *)",
+      "Bash(mv juhi_photo_opt.jpg juhi_photo.jpg)",
+      "Bash(mv conifers_in_the_mist_opt.jpg conifers_in_the_mist.jpg)"
     ]
   }
 }
