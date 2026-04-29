@@ -77,7 +77,7 @@ We use varied approaches including leveraging field observation network using **
   `,
 
   paragraph2: `
-Founded by earth system science and environmental social science researchers with experience at **NASA Jet Propulsion Laboratory**, the **National Center for Atmospheric Research**, the **University of Colorado Boulder**, and the **World Bank**, we bridge the gap between state-of-the-art Earth system science and local action — from global continental drying studies published in *Science Advances* to a community digital twin of the Bow River Basin.
+Founded by earth system science and environmental social science researchers with experience at **NASA Jet Propulsion Laboratory**,  **National Center for Atmospheric Research**,  **University of Colorado Boulder**, *Arizona State Univeristy*, and the **World Bank**, we bridge the gap between state-of-the-art Earth system science and local action — from global continental drying studies published in *Science Advances* to a community digital twin of the Bow River Basin.
   `,
 
   values: [
@@ -153,7 +153,7 @@ export const team = [
     bio: `
 Earth system scientist studying global water cycle changes at multiple scales. PhD in Earth System Science from **UC Irvine**.
 
-He has conducted research at/for **The World Bank**, **NASA Jet Propulsion Laboratory**, **National Center for Atmospheric Research**, **Colorado Center for Astrodynamics Research**, and **Global Institute for Water Security** among others. His work has been published in journals such as *Science Advances*, *Nature*, *PNAS*, *Geophysical Research Letters*, and other leading journals. He has served as a reviewer for multiple NASA ROSES panels. He is a member of the **Bow River Basin Council Science Committee**.
+He has conducted research at/for **The World Bank**, **NASA Jet Propulsion Laboratory**, **National Center for Atmospheric Research**, **Colorado Center for Astrodynamics Research**, **Global Institute for Water Security**, and **Arizona State University** among others. His work has been published in journals such as *Science Advances*, *Nature*, *PNAS*, *Geophysical Research Letters*, and other leading journals. He has served as a reviewer for multiple NASA ROSES panels. He is a member of the **Bow River Basin Council Science Committee**.
     `,
     expertise: [
       "Remote Sensing",
@@ -256,14 +256,14 @@ export const contact = {
     { label: "Director of Policy & Engagement", address: "juhi@evergreenresilience.org" },
   ],
   socialLinks: [
-    {
-      label: "Google Scholar",
-      url: "https://scholar.google.com/citations?user=jlwo8s8AAAAJ&hl=en",
-    },
-    { label: "GitHub", url: "https://github.com/hrishikeshac" },
-    {
-      label: "ResearchGate",
-      url: "https://www.researchgate.net/profile/Hrishikesh-Chandanpurkar",
-    },
+    // {
+    //   label: "Google Scholar",
+    //   url: "https://scholar.google.com/citations?user=jlwo8s8AAAAJ&hl=en",
+    // },
+    // { label: "GitHub", url: "https://github.com/hrishikeshac" },
+    // {
+    //   label: "ResearchGate",
+    //   url: "https://www.researchgate.net/profile/Hrishikesh-Chandanpurkar",
+    // },
   ],
 };
