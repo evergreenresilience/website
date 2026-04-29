@@ -1,6 +1,6 @@
 # ERI Website
 
-A portfolio website built with **React** and **Vite** as the build tool, deploying via **GitHub Pages**.
+A portfolio website built with **React** and **Vite** as the build tool, deploying via **GitHub Pages**. Coding agents Claude and Pi were used with LLMs Claude Sonnet and Qwen3.6 27B respectively for most of the coding specific tasks and for committing to github. 
 
 ## Getting Started
 
