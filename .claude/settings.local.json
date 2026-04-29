@@ -9,7 +9,8 @@
       "Bash(sips --resampleWidth 1920 -s format jpeg -s formatOptions 82 conifers_in_the_mist.jpg --out conifers_in_the_mist_opt.jpg)",
       "Bash(sips *)",
       "Bash(mv juhi_photo_opt.jpg juhi_photo.jpg)",
-      "Bash(mv conifers_in_the_mist_opt.jpg conifers_in_the_mist.jpg)"
+      "Bash(mv conifers_in_the_mist_opt.jpg conifers_in_the_mist.jpg)",
+      "Bash(git commit *)"
     ]
   }
 }
