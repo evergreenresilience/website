@@ -12,7 +12,7 @@ export const siteInfo = {
   name: "Evergreen Resilience Institute",
   tagline: "Where frontier science meets community resilience",
   description:
-    "Advancing AI-driven Earth observation, and building climate resilience through community engagement, from the Evergreen neighborhood in Calgary, Canada",
+    "Advancing AI-driven Earth observation and building climate resilience through community engagement, from the Evergreen neighborhood in Calgary, Canada",
   location: "Calgary, Alberta, Canada",
   type: "Independent Research Foundation",
   affiliations: [], // e.g. ["NASA JPL Alumni", "World Bank"]
@@ -175,9 +175,11 @@ He has conducted research at/for **The World Bank**, **NASA Jet Propulsion Labor
     name: "Juhi Huda, PhD",
     role: "Co-Founder, Director of Policy & Engagement",
     bio: `
-Environmental policy, governance, and communication scholar. PhD in Environmental Studies from the **University of Colorado, Boulder**.
+Co-Founder, Director of Policy & Engagement
 
-Former postdoctoral researcher at **NASA JPL/Caltech**, Assistant Professor at **FLAME University** (India), and Research Associate at **The Simpson Centre for Food and Agricultural Policy** at the University of Calgary. Research spans food systems governance, water governance, climate change policy, disaster and hazards, and agricultural digitalization.
+Environmental social scientist studying how policy, governance, and communication intersect to shape environmental and agricultural outcomes. PhD in Environmental Studies from the University of Colorado, Boulder.
+
+She has conducted research at **NASA Jet Propulsion Laboratory**, **International Centre for Integrated Mountain Development (ICIMOD, Nepal)**, **Great Basin Institute**,  **FLAME University** (India), and **University of Calgary** among others. Her work has been published in Review of Policy Research, Politics & Policy, and Journal of Rural Studies among others. She is a member of the **Bow River Basin Council Legislation and Policy Committee**.
     `,
     expertise: [
       "Water Policy",
