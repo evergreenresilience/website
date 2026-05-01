@@ -29,7 +29,7 @@ The Evergreen Resilience Institute is an independent, not-for-profit research in
 
 We use varied approaches including leveraging field observation network using **remote sensing**, **climate modeling** and **AI-ML workflows**, as well as social science techniques such as narrative analysis, interviews, surveys, stakeholder consultations, and policy labs.
   `,paragraph2:`
-Founded by earth system science and environmental social science researchers with experience at **NASA Jet Propulsion Laboratory**,  **National Center for Atmospheric Research**,  **University of Colorado Boulder**, *Arizona State Univeristy*, and the **World Bank**, we bridge the gap between state-of-the-art Earth system science and local action — from global continental drying studies published in *Science Advances* to a community digital twin of the Bow River Basin.
+Founded by earth system science and environmental social science researchers with experience at **NASA Jet Propulsion Laboratory**,  **National Center for Atmospheric Research**,  **University of Colorado Boulder**, **Arizona State University**, and the **World Bank**, we bridge the gap between state-of-the-art Earth system science and local action — from global continental drying studies published in *Science Advances* to a community digital twin of the Bow River Basin.
   `,values:[{label:`Open Science`,desc:`All research freely accessible`},{label:`Ethical AI-Driven`,desc:`Water-efficient AI tools meet Earth observation`},{label:`Community-Rooted`,desc:`Global methods, local impact`}]},Oo=[{num:`01`,title:`Local-to-Global Water Cycle Change`,desc:`
 Quantifying how climate change and human activity are altering freshwater availability. Using multiple satellite missions to track:
 
