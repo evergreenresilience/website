@@ -246,6 +246,114 @@ export const publications = [
   },
 ];
 
+// --- PROJECTS --- (description fields support markdown)
+// Each project maps to a dedicated page at /projects/:slug
+export const projects = [
+  {
+    slug: "global-water-cycle",
+    num: "01",
+    title: "Global Water Cycle Monitoring",
+    tagline: "Tracking freshwater change from space using AI-driven satellite synthesis",
+    status: "Active",
+    leads: ["Hrishikesh A. Chandanpurkar"],
+    description: `
+We are building a continuous, near-real-time synthesis of global freshwater availability using data from multiple satellite missions — GRACE/GRACE-FO, MODIS, Landsat, Sentinel, and others — combined with AI/ML workflows to detect emerging trends and tipping points.
+
+**What we're doing:**
+
+- Integrating satellite gravity (GRACE/GRACE-FO), optical, and microwave remote sensing to track groundwater, surface water, and snow water equivalent simultaneously
+- Developing open, reproducible pipelines for freshwater monitoring that any researcher or agency can adopt
+- Identifying regions approaching critical freshwater thresholds, particularly in dryland and heavily irrigated basins
+- Connecting global-scale drying trends to local water supply and ecosystem vulnerability
+
+**Why it matters:**
+
+Our 2025 *Science Advances* paper documented unprecedented continental drying over the past two decades. This project builds on that foundation to provide ongoing, actionable monitoring — not just a historical snapshot.
+    `,
+    tags: ["Remote Sensing", "GRACE/GRACE-FO", "Groundwater", "Tipping Points", "Extremes", "AI/ML"],
+    outputs: [],
+    // relatedPubs: indices into publications array
+    relatedPubs: [2, 3, 5],
+  },
+  {
+    slug: "brain",
+    num: "02",
+    title: "Bow River Basin AI Network (BRAIN)",
+    tagline: "A community digital twin of the Bow River Basin powered by ethical, local AI",
+    status: "In Development",
+    leads: ["Hrishikesh A. Chandanpurkar", "Juhi Huda"],
+    description: `
+The Bow River Basin AI Network (BRAIN) is a community-scale digital twin of the Bow River watershed — one of the most important freshwater systems in Western Canada and the primary water source for Calgary and southern Alberta.
+
+**What we're building:**
+
+- A near-real-time dashboard integrating stream gauge data, snowpack measurements, glacier retreat estimates, and groundwater levels across the Bow Basin
+- AI/ML models trained locally for drought prediction, flood risk, and long-term water availability forecasting specific to the Bow
+- Open, privacy-respecting infrastructure: all models run locally, no data leaves the community
+- Tools co-designed with Indigenous communities, municipalities, agricultural users, and conservation organizations across the basin
+
+**Guiding principles:**
+
+BRAIN is built on three commitments — it must be **free** (no paywalls, ever), **local** (data stays in the community), and **ethical** (minimal energy footprint, transparent methods). We call this the FLE framework for responsible AI in environmental monitoring.
+    `,
+    tags: ["Digital Twins", "Bow River", "AI-Native", "Data Fusion", "Community Co-design"],
+    outputs: [],
+    relatedPubs: [],
+  },
+  {
+    slug: "food-energy-water",
+    num: "03",
+    title: "Food-Energy-Water Nexus",
+    tagline: "Understanding the interconnected governance of food, energy, and water systems in Alberta",
+    status: "Active",
+    leads: ["Juhi Huda"],
+    description: `
+Food production, energy generation, and freshwater availability are deeply entangled systems. Decisions in one domain inevitably ripple through the others — yet they are typically governed and studied in silos.
+
+**What we're investigating:**
+
+- How water policy, agricultural incentives, and energy regulation interact and sometimes conflict in Alberta and the broader Canadian Prairies
+- Barriers and enablers for digital agriculture adoption among Alberta farmers, and what this means for water efficiency
+- The role of narrative and trust in shaping farmer and stakeholder responses to climate-adaptive governance
+- Pathways toward regenerative agriculture that reduce pressure across all three systems simultaneously
+
+**Methods:**
+
+We combine quantitative analysis of agricultural and hydrological datasets with qualitative social science: interviews, stakeholder consultations, narrative policy analysis, and survey methods. This mixed-methods approach lets us move from "what is changing" to "why, and what can be done."
+    `,
+    tags: ["Water Governance", "Food Systems", "Policy Narratives", "Digital Agriculture", "Alberta"],
+    outputs: [],
+    relatedPubs: [1, 4],
+  },
+  {
+    slug: "nature-journaling",
+    num: "04",
+    title: "Community Resiliency Through Nature Journaling",
+    tagline: "Building ecological literacy and community connection through the practice of observing and recording nature",
+    status: "Active",
+    leads: ["Juhi Huda", "Hrishikesh A. Chandanpurkar"],
+    description: `
+Science literacy and ecological connection are preconditions for community climate resilience — but traditional public engagement often fails to build lasting relationships between people and the landscapes they depend on.
+
+Nature journaling offers a different path: through sustained, personal observation and recording of the natural world, participants develop deep attentiveness to seasonal change, species presence and absence, and long-term ecological shifts in their own neighborhoods.
+
+**What we're doing:**
+
+- Running nature journaling workshops in Calgary's Evergreen neighborhood and along the Bow River corridor
+- Documenting how consistent journaling practice changes participants' relationship to local ecosystems and climate change
+- Building a community archive of observations that captures phenological change over time
+- Connecting journaling communities to the broader citizen science and Indigenous land stewardship networks in the region
+
+**Why nature journaling:**
+
+The practice is radically accessible — all you need is a notebook. It scales from children to seniors, requires no scientific background, and has been shown to build the kind of slow, attentive relationship with place that underlies genuine community resilience.
+    `,
+    tags: ["Science Communication", "Community Engagement", "Phenology", "Bow River", "Citizen Science"],
+    outputs: [],
+    relatedPubs: [],
+  },
+];
+
 // --- CONTACT ---
 export const contact = {
   emails: [

@@ -7,10 +7,11 @@
 // ============================================================
 
 import { useState, useEffect, useRef } from "react";
+import { HashRouter, Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import { siteInfo, ui, about, researchAreas, team, publications, contact } from "./data.js";
+import { siteInfo, ui, about, researchAreas, projects, team, publications, contact } from "./data.js";
 
-const SECTIONS = ["home","about","research","team","contact"];
+const SECTIONS = ["home","about","research","projects","team","contact"];
 const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
 // Arctic Light color palette
@@ -76,6 +77,28 @@ function Nav({ active }) {
         </div>
       )}
       <style>{`@media(max-width:768px){.desktop-nav{display:none!important}.mobile-menu-btn{display:block!important}}`}</style>
+    </nav>
+  );
+}
+
+// Minimal nav for project pages
+function ProjectNav() {
+  const navigate = useNavigate();
+  return (
+    <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, background: C.bg, backdropFilter: "blur(12px)", borderBottom: `1px solid ${C.border}` }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "20px 48px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 12 }} onClick={() => navigate("/")}>
+          <div style={{ width: 40, height: 40, borderRadius: "8px", background: C.accent, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ color: "white", fontFamily: "'Playfair Display', serif", fontSize: 24, fontWeight: 600 }}>ERI</span>
+          </div>
+          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 700, letterSpacing: "0.04em", color: C.ink }}>
+            <span style={{ color: C.accent }}>Evergreen</span> Resilience Institute
+          </span>
+        </div>
+        <button onClick={() => navigate("/")} style={{ background: "none", border: `1px solid ${C.border}`, fontFamily: "'Instrument Sans', sans-serif", fontSize: 13, fontWeight: 600, color: C.inkMid, cursor: "pointer", padding: "8px 20px", letterSpacing: "0.05em" }}>
+          ← All Projects
+        </button>
+      </div>
     </nav>
   );
 }
@@ -195,6 +218,44 @@ function Research() {
   );
 }
 
+const STATUS_COLORS = {
+  "Active": { bg: C.accentPale, color: C.accent, border: C.accentLight },
+  "In Development": { bg: "#FFF8E7", color: "#92580A", border: "#F0C060" },
+};
+
+function ProjectsSection() {
+  return (
+    <Sec id="projects" bg={C.surface}>
+      <SL text="Our Projects" />
+      <ST accent="Current" rest="research projects" />
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 24 }} className="projects-grid">
+        {projects.map((p, i) => {
+          const sc = STATUS_COLORS[p.status] || STATUS_COLORS["Active"];
+          return (
+            <Link key={p.slug} to={`/projects/${p.slug}`} style={{ textDecoration: "none", display: "block" }}>
+              <div style={{ background: C.bg, padding: 36, borderTop: `3px solid ${i < 2 ? C.accent : C.accentLight}`, height: "100%", boxSizing: "border-box", transition: "box-shadow 0.3s, transform 0.3s", cursor: "pointer" }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 8px 32px rgba(45,106,79,0.12)`; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "translateY(0)"; }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
+                  <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: C.inkLight }}>{p.num}</span>
+                  <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: sc.color, padding: "3px 10px", border: `1px solid ${sc.border}`, background: sc.bg }}>{p.status}</span>
+                </div>
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: C.ink, margin: "0 0 12px", lineHeight: 1.2 }}>{p.title}</h3>
+                <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 14, color: C.inkMid, lineHeight: 1.6, margin: "0 0 20px" }}>{p.tagline}</p>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 20 }}>
+                  {p.tags.slice(0, 3).map(t => <span key={t} style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accent, padding: "3px 10px", border: `1px solid ${C.accentLight}`, background: C.accentPale }}>{t}</span>)}
+                </div>
+                <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 12, fontWeight: 600, color: C.accent, letterSpacing: "0.05em" }}>View Project →</span>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+      <style>{`@media(max-width:768px){.projects-grid{grid-template-columns:1fr!important}}`}</style>
+    </Sec>
+  );
+}
+
 function TeamSection() {
   return (
     <Sec id="team" bg={C.bg}>
@@ -296,7 +357,113 @@ function Footer() {
   );
 }
 
-export default function App() {
+function ProjectPage() {
+  const { slug } = useParams();
+  const navigate = useNavigate();
+  const project = projects.find(p => p.slug === slug);
+
+  useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+
+  if (!project) {
+    return (
+      <div style={{ background: C.bg, minHeight: "100vh", paddingTop: 100, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 24 }}>
+        <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, color: C.ink }}>Project not found.</p>
+        <button onClick={() => navigate("/")} style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 13, fontWeight: 600, color: "white", background: C.accent, border: "none", cursor: "pointer", padding: "12px 28px" }}>← Back to ERI</button>
+      </div>
+    );
+  }
+
+  const sc = STATUS_COLORS[project.status] || STATUS_COLORS["Active"];
+  const relatedPubs = (project.relatedPubs || []).map(i => publications[i]).filter(Boolean);
+
+  return (
+    <div style={{ background: C.bg, minHeight: "100vh", color: C.ink }}>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+      <ProjectNav />
+
+      {/* Hero band */}
+      <section style={{ background: C.ink, paddingTop: 100 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "72px 48px 64px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24 }}>
+            <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)" }}>{project.num}</span>
+            <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: sc.color, padding: "3px 10px", border: `1px solid ${sc.border}`, background: sc.bg }}>{project.status}</span>
+          </div>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(32px,5vw,60px)", fontWeight: 700, color: "white", lineHeight: 1.1, marginBottom: 20, maxWidth: 800 }}>{project.title}</h1>
+          <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 18, color: "rgba(255,255,255,0.65)", lineHeight: 1.6, maxWidth: 680, marginBottom: 32 }}>{project.tagline}</p>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+            {project.tags.map(t => <span key={t} style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: C.accentLight, padding: "3px 10px", border: `1px solid rgba(82,183,136,0.4)`, background: "rgba(82,183,136,0.08)" }}>{t}</span>)}
+          </div>
+        </div>
+      </section>
+
+      {/* Main content */}
+      <section style={{ background: C.bg, borderTop: `1px solid ${C.border}` }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "72px 48px", display: "grid", gridTemplateColumns: "1fr 320px", gap: 80, alignItems: "start" }} className="project-body-grid">
+
+          {/* Description */}
+          <div>
+            <SL text="About This Project" />
+            <div style={{ marginTop: 8 }}>
+              <MD>{project.description}</MD>
+            </div>
+
+            {/* Related publications */}
+            {relatedPubs.length > 0 && (
+              <div style={{ marginTop: 56, paddingTop: 48, borderTop: `1px solid ${C.border}` }}>
+                <SL text="Related Publications" />
+                <div style={{ marginTop: 8 }}>
+                  {relatedPubs.map((p, i) => (
+                    <div key={i} style={{ display: "grid", gridTemplateColumns: "48px 1fr", gap: 20, padding: "16px 0", borderTop: `1px solid ${C.border}`, alignItems: "baseline" }}>
+                      <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 13, fontWeight: 600, color: C.accent }}>{p.year}</span>
+                      <div>
+                        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 11, color: C.inkLight, marginBottom: 4 }}>{p.authors}</p>
+                        <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 700, color: C.ink, lineHeight: 1.5, marginBottom: 4 }}>
+                          {p.doi ? <a href={p.doi} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>{p.title}</a> : p.title}
+                        </h4>
+                        <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 13, color: C.accent, fontStyle: "italic", margin: 0 }}>{p.journal}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <div style={{ position: "sticky", top: 100 }}>
+            <div style={{ background: C.surface, padding: 32, border: `1px solid ${C.border}`, marginBottom: 24 }}>
+              <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: C.inkLight, marginBottom: 16 }}>Project Leads</p>
+              {project.leads.map(lead => (
+                <p key={lead} style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 14, fontWeight: 600, color: C.ink, margin: "0 0 8px" }}>{lead}</p>
+              ))}
+            </div>
+
+            {project.outputs?.length > 0 && (
+              <div style={{ background: C.surface, padding: 32, border: `1px solid ${C.border}`, marginBottom: 24 }}>
+                <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: C.inkLight, marginBottom: 16 }}>Outputs & Links</p>
+                {project.outputs.map((o, i) => (
+                  <a key={i} href={o.url} target="_blank" rel="noopener noreferrer" style={{ display: "block", fontFamily: "'Instrument Sans', sans-serif", fontSize: 13, fontWeight: 600, color: C.accent, textDecoration: "none", marginBottom: 10, borderBottom: `1px solid ${C.accentLight}`, paddingBottom: 2 }}>{o.label} →</a>
+                ))}
+              </div>
+            )}
+
+            <div style={{ background: C.accentPale, padding: 32, border: `1px solid ${C.accentLight}` }}>
+              <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: C.accent, marginBottom: 12 }}>Collaborate</p>
+              <p style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 13, color: C.inkMid, lineHeight: 1.6, marginBottom: 16 }}>Interested in contributing to this project? We welcome researchers, community partners, and funders.</p>
+              <a href={`mailto:info@evergreenresilience.org`} style={{ fontFamily: "'Instrument Sans', sans-serif", fontSize: 12, fontWeight: 600, color: "white", background: C.accent, padding: "10px 20px", textDecoration: "none", display: "inline-block", letterSpacing: "0.05em" }}>Get in Touch</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Contact />
+      <Footer />
+      <style>{`@media(max-width:768px){.project-body-grid{grid-template-columns:1fr!important}}`}</style>
+    </div>
+  );
+}
+
+function MainSite() {
   const [active, setActive] = useState("home");
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -310,7 +477,18 @@ export default function App() {
     <div style={{ background: C.bg, minHeight: "100vh", color: C.ink }}>
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
       <Nav active={active} />
-      <Hero /><About /><Research /><TeamSection /><Contact /><Footer />
+      <Hero /><About /><Research /><ProjectsSection /><TeamSection /><Contact /><Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<MainSite />} />
+        <Route path="/projects/:slug" element={<ProjectPage />} />
+      </Routes>
+    </HashRouter>
   );
 }
