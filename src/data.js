@@ -11,9 +11,7 @@
 export const siteInfo = {
   name: "Evergreen Resilience Institute",
   tagline: "Where frontier science meets community resilience",
-  description:
-    "Advancing AI-driven Earth observation and building climate resilience through community engagement, from the Evergreen neighborhood in Calgary, Canada",
-  location: "Calgary, Alberta, Canada",
+location: "Calgary, Alberta, Canada",
   type: "Independent Research Foundation",
   affiliations: [], // e.g. ["NASA JPL Alumni", "World Bank"]
   // logo: "/images/logo.svg",
@@ -28,7 +26,7 @@ export const ui = {
     // h1 is split: accentWord is highlighted in green, rest is plain
     h1AccentWord: "Where",
     h1Rest: "frontier science meets community resilience",
-    descLine1: "Advancing AI-driven Earth observation, and building climate resilience through community engagement,",
+    descLine1: "Advancing AI-driven Earth observation and building climate resilience through community engagement,",
     descLine2: "based out of Evergreen neighborhood, Calgary, Canada",
     btnPrimary: "Our Research",
     btnSecondary: "Collaborate",
@@ -77,7 +75,7 @@ We use varied approaches including leveraging field observation network using **
   `,
 
   paragraph2: `
-Founded by earth system science and environmental social science researchers with experience at **NASA Jet Propulsion Laboratory**,  **National Center for Atmospheric Research**,  **University of Colorado Boulder**, *Arizona State Univeristy*, and the **World Bank**, we bridge the gap between state-of-the-art Earth system science and local action — from global continental drying studies published in *Science Advances* to a community digital twin of the Bow River Basin.
+Founded by earth system science and environmental social science researchers with experience at **NASA Jet Propulsion Laboratory**,  **National Center for Atmospheric Research**,  **University of Colorado Boulder**, **Arizona State University**, and the **World Bank**, we bridge the gap between state-of-the-art Earth system science and local action — from global continental drying studies published in *Science Advances* to a community digital twin of the Bow River Basin.
   `,
 
   values: [
@@ -117,7 +115,7 @@ Developing free, open, local, and private AI/ML workflows with minimal water foo
     num: "03",
     title: "Water & Food Policy",
     desc: `
-Investigating the governance and policy dimensions of water and food systems — from agricultural water sustainability and digital agriculture adoption in Alberta to stakeholder engagement in climate adaptation and the **food-energy-water nexus**.
+Investigating the governance and policy dimensions of water and food systems — from agricultural water sustainability and digital agriculture adoption in Alberta to stakeholder engagement in climate adaptation and the food-energy-water nexus.
     `,
     tags: [
       "Water Governance",
@@ -151,7 +149,7 @@ export const team = [
     aka: "Hrishi",
     role: "Co-Founder, Director of Science",
     bio: `
-Earth system scientist studying global water cycle changes at multiple scales. PhD in Earth System Science from **UC Irvine**.
+Earth system scientist studying global water cycle changes at multiple scales. PhD in Earth System Science from **University of California, Irvine**.
 
 He has conducted research at/for **The World Bank**, **NASA Jet Propulsion Laboratory**, **National Center for Atmospheric Research**, **Colorado Center for Astrodynamics Research**, **Global Institute for Water Security**, and **Arizona State University** among others. His work has been published in journals such as *Science Advances*, *Nature*, *PNAS*, *Geophysical Research Letters*, and other leading journals. He has served as a reviewer for multiple NASA ROSES panels. He is a member of the **Bow River Basin Council Science Committee**.
     `,
@@ -175,11 +173,9 @@ He has conducted research at/for **The World Bank**, **NASA Jet Propulsion Labor
     name: "Juhi Huda, PhD",
     role: "Co-Founder, Director of Policy & Engagement",
     bio: `
-Co-Founder, Director of Policy & Engagement
+Environmental social scientist studying how policy, governance, and communication intersect to shape environmental and agricultural outcomes. PhD in Environmental Studies from **University of Colorado, Boulder**.
 
-Environmental social scientist studying how policy, governance, and communication intersect to shape environmental and agricultural outcomes. PhD in Environmental Studies from the University of Colorado, Boulder.
-
-She has conducted research at **NASA Jet Propulsion Laboratory**, **International Centre for Integrated Mountain Development (ICIMOD, Nepal)**, **Great Basin Institute**,  **FLAME University** (India), and **University of Calgary** among others. Her work has been published in Review of Policy Research, Politics & Policy, and Journal of Rural Studies among others. She is a member of the **Bow River Basin Council Legislation and Policy Committee**.
+She has conducted research at **NASA Jet Propulsion Laboratory**, **International Centre for Integrated Mountain Development (ICIMOD, Nepal)**, **Great Basin Institute**,  **FLAME University (India)**, and **University of Calgary** among others. Her work has been published in Review of Policy Research, Politics & Policy, and Journal of Rural Studies among others. She is a member of the **Bow River Basin Council Legislation and Policy Committee**.
     `,
     expertise: [
       "Water Policy",
