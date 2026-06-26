@@ -299,9 +299,7 @@ The Bow River Basin AI Network (BRAIN) is a community-scale digital twin of the 
 BRAIN is built on three commitments — it must be **free** (no paywalls, ever), **local** (data stays in the community), and **ethical** (minimal energy footprint, transparent methods). We call this the FLE framework for responsible AI in environmental monitoring.
     `,
     tags: ["Digital Twins", "Bow River", "AI-Native", "Data Fusion", "Community Co-design"],
-    outputs: [
-      { label: "GRACE Water Stocks Dashboard", url: "https://waterstocks.evergreenresilience.org" },
-    ],
+    outputs: [],
     relatedPubs: [],
   },
   {
