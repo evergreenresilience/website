@@ -271,7 +271,9 @@ We are building a continuous, near-real-time synthesis of global freshwater avai
 Our 2025 *Science Advances* paper documented unprecedented continental drying over the past two decades. This project builds on that foundation to provide ongoing, actionable monitoring — not just a historical snapshot.
     `,
     tags: ["Remote Sensing", "GRACE/GRACE-FO", "Groundwater", "Tipping Points", "Extremes", "AI/ML"],
-    outputs: [],
+    outputs: [
+      { label: "GRACE Water Stocks Dashboard", url: "https://waterstocks.evergreenresilience.org" },
+    ],
     // relatedPubs: indices into publications array
     relatedPubs: [2, 3, 5],
   },
@@ -297,7 +299,9 @@ The Bow River Basin AI Network (BRAIN) is a community-scale digital twin of the 
 BRAIN is built on three commitments — it must be **free** (no paywalls, ever), **local** (data stays in the community), and **ethical** (minimal energy footprint, transparent methods). We call this the FLE framework for responsible AI in environmental monitoring.
     `,
     tags: ["Digital Twins", "Bow River", "AI-Native", "Data Fusion", "Community Co-design"],
-    outputs: [],
+    outputs: [
+      { label: "GRACE Water Stocks Dashboard", url: "https://waterstocks.evergreenresilience.org" },
+    ],
     relatedPubs: [],
   },
   {
