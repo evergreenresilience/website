@@ -9,10 +9,10 @@ Evergreen Resilience Institute (ERI) is an independent research foundation combi
 - [Team & Publications](https://evergreenresilience.org/#team) — researcher bios and selected publications
 
 ## Research Projects
-- [Global-to-local Water Cycle Monitoring](https://evergreenresilience.org/projects/global-water-cycle)
-- [Bow River Basin AI Network (BRAIN)](https://evergreenresilience.org/projects/brain)
-- [Food-Energy-Water Nexus](https://evergreenresilience.org/projects/food-energy-water)
-- [Community Engagement](https://evergreenresilience.org/projects/nature-journaling)
+- [Global-to-local Water Cycle Monitoring](https://evergreenresilience.org/projects/global-water-cycle/)
+- [Bow River Basin AI Network (BRAIN)](https://evergreenresilience.org/projects/brain/)
+- [Food-Energy-Water Nexus](https://evergreenresilience.org/projects/food-energy-water/)
+- [Community Engagement](https://evergreenresilience.org/projects/nature-journaling/)
 
 ## Contact
 - General inquiries: info@evergreenresilience.org
